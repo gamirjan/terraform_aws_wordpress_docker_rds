@@ -1,9 +1,9 @@
-variable "zone" {
+variable "instance_count" {
   description = "for single zone deployment"
-  default = "europe-west4-b"
+  default     = 2
 }
 
 variable "zones" {
-  description = "for multi zone deployment"
-  default = ["europe-west4-b", "europe-west4-c"]
+  type    = list(string)
+  default = ["us-east-1a", "us-east-1b"]
 }
