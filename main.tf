@@ -21,13 +21,16 @@ resource "aws_instance" "wordpress" {
   vpc_security_group_ids = [aws_security_group.allow_http.id]
   user_data = templatefile("file.sh.tpl", {
     hostname = aws_db_instance.mysql_db.endpoint
+    db_name  = aws_db_instance.mysql_db.name
+    username = aws_db_instance.mysql_db.username
+    password = aws_db_instance.mysql_db.password
   })
   key_name = aws_key_pair.kp.id
   tags = {
     Name = "Wordpress"
   }
   depends_on = [
-    aws_key_pair.kp
+    aws_db_instance.mysql_db
   ]
 
 }
