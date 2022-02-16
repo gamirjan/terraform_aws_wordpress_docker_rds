@@ -15,6 +15,8 @@ provider "aws" {
 
 resource "aws_instance" "wordpress" {
   ami                    = "ami-0a8b4cd432b1c3063"
+  count                  =  2
+  availability_zone      = ["us-east-2a", "us-east-2b"]
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.allow_http.id]
   user_data = templatefile("file.sh.tpl", {
