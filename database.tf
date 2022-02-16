@@ -12,4 +12,3 @@ resource "aws_db_instance" "mysql_db" {
   skip_final_snapshot    = true
   vpc_security_group_ids = [aws_security_group.rdssg.id]
 }
-

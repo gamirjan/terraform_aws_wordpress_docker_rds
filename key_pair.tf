@@ -12,7 +12,4 @@ resource "aws_key_pair" "kp" {
   # provisioner "local-exec" {
   #  command = "echo '${tls_private_key.pk.private_key_pem}' > ./myKey.pem ; chmod 400 myKey.pem"
   #}
-  provisioner "local-exec" {
-    command = "echo '${tls_private_key.pk.private_key_pem}' > ./myKey.pem"
-  }
 }
