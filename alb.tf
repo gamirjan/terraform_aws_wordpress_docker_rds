@@ -17,7 +17,7 @@ resource "aws_elb" "clb" {
     interval            = 30
   }
 
-  instances                   = [aws_instance.wordpress[0].id, aws_instance.wordpress[1].id]
+  instances                   = "${aws_instance.wordpress.*.id}"
   cross_zone_load_balancing   = true
   idle_timeout                = 400
   connection_draining         = true
