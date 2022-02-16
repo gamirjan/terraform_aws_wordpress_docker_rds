@@ -1,15 +1,7 @@
 #!/bin/bash
-sudo yum install httpd -y
-sudo amazon-linux-extras install lamp-mariadb10.2-php7.2 php7.2 -y
-sudo systemctl start httpd
-cd /var/www/html
-sudo wget https://wordpress.org/latest.zip
-sudo unzip latest.zip
-cd wordpress
-sudo cp wp-config-sample.php wp-config.php
-sudo sed -i 's/database_name_here/mydb/g' wp-config.php
-sudo sed -i 's/username_here/gamirjan/g' wp-config.php
-sudo sed -i 's/password_here/gamirjan123/g' wp-config.php
-sudo sed -i 's/localhost/${hostname}/g' wp-config.php     
-sudo mv * .. 
-sudo systemctl restart httpd
+sudo yum update -y
+sudo amazon-linux-extras install docker
+sudo yum install docker
+sudo systemctl enable --now docker
+sudo usermod -a -G docker ec2-user
+docker run -e WORDPRESS_DB_HOST=${hostname} -e WORDPRESS_DB_USER='gamirjan'  -e WORDPRESS_DB_PASSWORD='gamirjan123' -e WORDPRESS_DB_NAME='mydb' -d -p 80:80 wordpress

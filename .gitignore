@@ -2,3 +2,6 @@
 .terraform
 .terraform/
 .git
+terraform.tfstate.backup
+terraform.tfstate
+myKey.pem
