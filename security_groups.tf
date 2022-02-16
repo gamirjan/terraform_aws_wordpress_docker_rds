@@ -27,13 +27,6 @@ resource "aws_security_group" "allow_http" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  ingress {
-    from_port   = 30303
-    to_port     = 30303
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
   egress {
     from_port        = 0
     to_port          = 0
@@ -67,5 +60,28 @@ resource "aws_security_group" "rdssg" {
   }
   tags = {
     name = "rds_security"
+  }
+}
+
+resource "aws_security_group" "lbsectest" {
+  name = "lbsectest"
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+
+  }
+  tags = {
+    name = "lb_sec"
   }
 }
