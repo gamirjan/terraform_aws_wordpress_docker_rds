@@ -16,6 +16,7 @@ provider "aws" {
 resource "aws_instance" "wordpress" {
   ami                    = "ami-0a8b4cd432b1c3063"
   count                  = var.instance_count
+  
   availability_zone      = var.zones[count.index]
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.allow_http.id]

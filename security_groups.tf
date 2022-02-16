@@ -1,7 +1,8 @@
 /* SECURITY GROUPS FOR WORDPRESS INSTANCE AND RDS INSTANCE */
 
 resource "aws_security_group" "allow_http" {
-  name = "allow_http"
+  name   = "allow_http"
+  vpc_id = aws_vpc.main.id
 
   ingress {
     from_port       = 80
@@ -38,7 +39,8 @@ resource "aws_security_group" "allow_http" {
 }
 
 resource "aws_security_group" "rdssg" {
-  name = "rdssg"
+  name   = "rdssg"
+  vpc_id = aws_vpc.main.id
 
   ingress {
     from_port       = 3306
@@ -61,7 +63,8 @@ resource "aws_security_group" "rdssg" {
 }
 
 resource "aws_security_group" "lb_sec" {
-  name = "lbsectest"
+  name   = "lbsectest"
+  vpc_id = aws_vpc.main.id
 
   ingress {
     from_port   = 80
