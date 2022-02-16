@@ -32,7 +32,7 @@ resource "aws_instance" "wordpress" {
 
 }
 
-#output "wordpress_ip" {
-#  value       = aws_instance.wordpress.public_dns
-#  description = "The public IP address of the main server instance."
-#}
+output "wordpress_ip" {
+  value       = aws_elb.clb.dns_name
+  description = "The public IP address of the main server instance."
+}

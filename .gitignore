@@ -4,4 +4,5 @@
 .git
 terraform.tfstate.backup
 terraform.tfstate
+.terraform.tfstate.lock.info
 myKey.pem
