@@ -15,7 +15,7 @@ locals {
   subs = concat([aws_subnet.public_subnet1.id], [aws_subnet.public_subnet2.id])
 }
 
-/* MAIN INSTANCE */
+/* MAIN INSTANCES */
 
 resource "aws_instance" "wordpress" {
   ami   = "ami-0a8b4cd432b1c3063"
@@ -41,7 +41,6 @@ resource "aws_instance" "wordpress" {
 
 }
 
-output "wordpress_ip" {
+output "Wordpress_DNS" {
   value       = aws_elb.clb.dns_name
-  description = "The public IP address of the main server instance."
 }
