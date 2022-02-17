@@ -18,10 +18,10 @@ locals {
 /* MAIN INSTANCE */
 
 resource "aws_instance" "wordpress" {
-  ami                    = "ami-0a8b4cd432b1c3063"
-  count                  = var.instance_count
-  
-  subnet_id 		 = element(local.subs, count.index)
+  ami   = "ami-0a8b4cd432b1c3063"
+  count = var.instance_count
+
+  subnet_id              = element(local.subs, count.index)
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.allow_http.id]
   user_data = templatefile("file.sh.tpl", {
@@ -30,7 +30,8 @@ resource "aws_instance" "wordpress" {
     username = aws_db_instance.mysql_db.username
     password = aws_db_instance.mysql_db.password
   })
-  key_name = aws_key_pair.kp.id
+  key_name                    = aws_key_pair.kp.id
+  associate_public_ip_address = true
   tags = {
     Name = "Wordpress"
   }

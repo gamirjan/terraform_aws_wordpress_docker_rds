@@ -8,28 +8,28 @@ resource "aws_internet_gateway" "igw" {
 }
 
 resource "aws_subnet" "public_subnet1" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = "10.0.0.64/26"
-	availability_zone = "us-east-1a"
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.0.0.64/26"
+  availability_zone = "us-east-1a"
 }
 
 
 resource "aws_subnet" "public_subnet2" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = "10.0.0.128/26"
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.0.0.128/26"
   availability_zone = "us-east-1b"
 }
 
 resource "aws_subnet" "private_subnets" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = "10.0.0.192/26"
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.0.0.192/26"
   availability_zone = "us-east-1c"
 }
 
 resource "aws_subnet" "private_subnet2" {
- vpc_id     = aws_vpc.main.id
- cidr_block = "10.0.0.0/26"
- availability_zone = "us-east-1d"
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.0.0.0/26"
+  availability_zone = "us-east-1d"
 }
 
 resource "aws_route_table" "public_rt" {
