@@ -26,6 +26,12 @@ resource "aws_subnet" "private_subnets" {
   availability_zone = "us-east-1c"
 }
 
+resource "aws_subnet" "private_subnet2" {
+ vpc_id     = aws_vpc.main.id
+ cidr_block = "10.0.0.0/26"
+ availability_zone = "us-east-1d"
+}
+
 resource "aws_route_table" "public_rt" {
   vpc_id = aws_vpc.main.id
   route {

@@ -1,6 +1,6 @@
 resource "aws_elb" "clb" {
   name               = "wordpress"
-  availability_zones = var.zones
+  subnets = [aws_subnet.public_subnet1.id, aws_subnet.public_subnet2.id]  
 
   listener {
     instance_port     = 80

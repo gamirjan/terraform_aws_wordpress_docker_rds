@@ -11,13 +11,17 @@ provider "aws" {
   region = "us-east-1"
 }
 
+locals {
+  subs = concat([aws_subnet.public_subnet1.id], [aws_subnet.public_subnet2.id])
+}
+
 /* MAIN INSTANCE */
 
 resource "aws_instance" "wordpress" {
   ami                    = "ami-0a8b4cd432b1c3063"
   count                  = var.instance_count
   
-  availability_zone      = var.zones[count.index]
+  subnet_id 		 = element(local.subs, count.index)
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.allow_http.id]
   user_data = templatefile("file.sh.tpl", {

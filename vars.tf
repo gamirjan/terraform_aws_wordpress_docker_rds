@@ -2,10 +2,10 @@ variable "instance_count" {
   description = "for single zone deployment"
 }
 
-variable "zones" {
-  type        = list(string)
-  description = "Availablity zones"
-}
+#variable "zones" {
+#  type        = list(string)
+#  description = "Availablity zones"
+#}
 
 variable "db_name" {
   type = string
