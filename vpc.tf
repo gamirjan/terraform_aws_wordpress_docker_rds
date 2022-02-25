@@ -60,15 +60,15 @@ resource "aws_route_table_association" "pub_2_rt_as" {
   route_table_id = aws_route_table.public_rt.id
 }
 
-resource "aws_route_table_association" "PrivateRTassociation" {
-  subnet_id      = aws_subnet.private_subnets.id
-  route_table_id = aws_route_table.private_rt.id
-}
+# resource "aws_route_table_association" "PrivateRTassociation" {
+#   subnet_id      = aws_subnet.private_subnets.id
+#   route_table_id = aws_route_table.private_rt.id
+# }
 
-resource "aws_route_table_association" "PrivateRTassociation2" {
-  subnet_id      = aws_subnet.private_subnet2.id
-  route_table_id = aws_route_table.private_rt.id
-}
+# resource "aws_route_table_association" "PrivateRTassociation2" {
+#   subnet_id      = aws_subnet.private_subnet2.id
+#   route_table_id = aws_route_table.private_rt.id
+# }
 
 # resource "aws_eip" "nat_ip" {
 #   vpc = true
