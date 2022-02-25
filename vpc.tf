@@ -65,11 +65,16 @@ resource "aws_route_table_association" "PrivateRTassociation" {
   route_table_id = aws_route_table.private_rt.id
 }
 
-resource "aws_eip" "nat_ip" {
-  vpc = true
+resource "aws_route_table_association" "PrivateRTassociation2" {
+  subnet_id      = aws_subnet.private_subnet2.id
+  route_table_id = aws_route_table.private_rt.id
 }
 
-resource "aws_nat_gateway" "nat" {
-  allocation_id = aws_eip.nat_ip.id
-  subnet_id     = aws_subnet.public_subnet1.id
-}
+# resource "aws_eip" "nat_ip" {
+#   vpc = true
+# }
+
+# resource "aws_nat_gateway" "nat" {
+#   allocation_id = aws_eip.nat_ip.id
+#   subnet_id     = aws_subnet.public_subnet1.id
+# }
