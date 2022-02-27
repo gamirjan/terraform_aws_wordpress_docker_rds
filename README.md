@@ -11,7 +11,7 @@ We are using terraform to provision infrastructure. Code uses and creates follow
 
 >Security Groups ․
 
->Classic Load Balancer for EC2 Instacnes
+>Application Load Balancer for EC2 Instacnes
 
 ### Before using the terraform, we need to export AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY as environment variables:
 
