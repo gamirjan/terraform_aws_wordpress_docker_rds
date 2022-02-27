@@ -3,11 +3,9 @@ We are using terraform to provision infrastructure. Code uses and creates follow
 
 >VPC.
 
->Subnets, Route Tables, Internet Gateway, Nat Gateway.
+>Subnets, Route Tables, Internet Gateway.
 
 >EC2 instances with dockerized wordpress.
-
->EIP for NAT Gateway.
 
 >RDS mysql instance.
 

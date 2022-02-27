@@ -42,5 +42,5 @@ resource "aws_instance" "wordpress" {
 }
 
 output "Wordpress_DNS" {
-  value       = aws_elb.clb.dns_name
+  value       = aws_lb.alb.dns_name
 }
